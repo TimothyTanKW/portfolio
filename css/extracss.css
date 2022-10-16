@@ -1,0 +1,62 @@
+/* Custom CSS
+ * --------------------------------------- */
+.wrap{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	position: relative;
+}
+.inner p{
+	max-width: 815px;
+    padding: 0 25px;
+    margin: 0 auto;
+    font-size: 17px;
+    color: #fff;
+    font-family: merriweather;
+    line-height: 37px;
+    letter-spacing: 0.3px;
+    font-weight: 100;
+}
+.section{
+	text-align:center;
+}
+#menu li.active{
+
+	color: #fff;
+}
+#menu li a{
+	text-decoration:none;
+	color: #000;
+	display: flex;
+    align-items: center;
+}
+#menu li a:hover{
+	text-decoration:none;
+	color: #fff;
+	display:block;
+}
+
+#menu li a,
+#menu li.active a, {
+	display:block;
+	float:left;
+}
+#menu li.active a {
+	color: #fff;
+}
+#menu{
+	position:fixed;
+	bottom:130px;
+	left:40px;
+	height: 40px;
+	z-index: 70;
+	padding: 0;
+	margin:0;
+	font-family: rock salt;
+    font-size: 1.25em;
+    list-style: none;
+}
+#menu li {
+	display: flex;
+    align-items: center;
+}
