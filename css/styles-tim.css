@@ -53,6 +53,8 @@ h1 {
     font-size: 2.5em;
     font-weight: 600;
     letter-spacing: 0.5em;
+    line-height: 1.2em;
+    padding-left: 0.2em;
 }
 
 h4 {
@@ -61,6 +63,7 @@ h4 {
     letter-spacing: 0.5em;
     font-size: 1.3em;
     line-height: 1.3em;
+    padding-left: 0.2em;
 }
 
 h6 {
@@ -68,6 +71,7 @@ h6 {
     font-weight: 500;
     letter-spacing: 0.4em;
     line-height: 0.9em;
+    padding-left: 0.5em;
 }
 
 a {
@@ -348,6 +352,8 @@ header {
     height: 40em;
     align-items: center;
     justify-content: center;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
 }
 
 .maev-text-change {
@@ -355,15 +361,19 @@ header {
 }
 
 /* about-profile */
+#about-profile {
+    margin-top: 4em;
+}
+
 .tim-profile {
     max-width: 10em;
-    margin-top: 4em;
 }
 
 .abpf-img {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .abpf-img h4 {
@@ -415,9 +425,7 @@ header {
 }
 
 .work-exp-box {
-    background-color: #fff;
     width: 100%;
-    height: 400px;
     border-radius: 15px;
     margin-top: 1em;
     overflow: hidden;
@@ -435,21 +443,16 @@ header {
 }
 
 .wkxp-btn:hover {
-    background:#fff;
-    color:#021036;
+    background: #fff;
+    color: #021036;
 }
 
 .wkxp-hidden {
-    visibility: hidden;
-    height: 0;
-    opacity: 0;
-    transition: all 1s;
+    display: none;
 }
 
 .wkxp-active {
-    visibility: visible;
-    height: 100%;
-    opacity: 1;
+    display: grid;
     margin-top: 3em;
 }
 
@@ -462,11 +465,7 @@ header {
 footer {
     text-align: center;
     margin-top: -4em;
-}
-
-.footer-social {
-    max-width: 2em;
-    margin-left: 2.3em;
+    position: relative;
 }
 
 #copyright {
@@ -507,10 +506,9 @@ footer {
 }
 
 .ltlk-btn:hover {
-    background:#fff;
-    color:#021036;
+    background: #fff;
+    color: #021036;
 }
-
 
 .ltlk-content {
     display: flex;
@@ -541,16 +539,15 @@ footer {
     bottom: 0;
 }
 
-.ltlk-input input:focus{
+.ltlk-input input:focus {
     outline: 0;
 }
 
-.ltlk-input input:focus ~ span{
+.ltlk-input input:focus ~ span {
     width: 100%;
     -webkit-transition: all 0.075s ease;
     transition: all 0.075s ease;
 }
-
 
 input {
     border-radius: 0;
@@ -564,12 +561,86 @@ input {
     line-height: 2em;
 }
 
-
 input:focus ~ label,
 input:valid ~ label {
     font-size: 0.85em;
     color: rgb(48, 255, 253);
-    top: 9px;
+    top: 11px;
     -webkit-transition: all 0.225s ease;
     transition: all 0.225s ease;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+    h1 {
+        font-size: 2.1em;
+    }
+
+    .abpf-img h4 {
+        margin: 1.5em;
+    }
+}
+
+@media (max-width: 991px) {
+    nav {
+        margin-left: 0.5em;
+    }
+
+    .wkxp-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .abpf-img {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 680px) {
+    #main-achieve {
+        background-position-y: -13em;
+    }
+
+    #tim-logo {
+        max-width: 5em;
+        margin-top: 1em;
+    }
+
+    nav {
+        margin-top: 1em;
+    }
+
+    #ltlk-frm {
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .container {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .header-contact {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    h1 {
+        font-size: 1.7em;
+    }
+
+    .wkxp-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .abpf-img h4 {
+        margin: 1.5em auto;
+        text-align: center;
+    }
+
+    .abpf-text {
+        margin-top: 1.5em;
+    }
 }
