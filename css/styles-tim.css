@@ -164,12 +164,12 @@ nav {
 
 /* progress-bar */
 
-.article__wrap {
+.progress-wrap {
     position: relative;
     text-align: center;
     top: -2em;
 }
-.beacon__wrap {
+.prgs-start {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -179,7 +179,7 @@ nav {
     right: 0;
     margin: 0 auto;
 }
-.beacon__wrap .beacon__inner {
+.prgs-start .prgs-inner {
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -188,7 +188,7 @@ nav {
     right: 0;
     margin: 0 auto;
 }
-.beacon__wrap .beacon__outer {
+.prgs-start .prgs-outer {
     width: 4em;
     height: 4em;
     border-radius: 50%;
@@ -198,13 +198,13 @@ nav {
     text-align: center;
 }
 
-.article__p__wrap {
+.prgs-area-wrap {
     position: relative;
 }
-.article__p {
+.prgs-end {
     height: 12em;
 }
-.progress__bar__bg {
+.prgs-bar-bg {
     width: 0.2em;
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
@@ -214,7 +214,7 @@ nav {
     margin: 0 auto;
     top: -2.5em;
 }
-.progress__bar {
+.prgs-bar {
     position: absolute;
     left: 0;
     height: 100%;
@@ -223,7 +223,7 @@ nav {
     top: -2.5em;
 }
 
-.progress__gutter {
+.prgs-gutter {
     width: 0.2em;
     height: 100%;
     background: rgb(48, 255, 253);
@@ -234,7 +234,7 @@ nav {
     right: 0;
 }
 
-.progress__bar__arrow {
+.prgs-arrow {
     width: 10px;
     height: 10px;
     position: absolute;
@@ -352,8 +352,8 @@ header {
     height: 40em;
     align-items: center;
     justify-content: center;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .maev-text-change {
@@ -362,7 +362,7 @@ header {
 
 /* about-profile */
 #about-profile {
-    margin-top: 4em;
+    padding-top: 4em;
 }
 
 .tim-profile {
@@ -412,6 +412,7 @@ header {
 #work-exp {
     text-align: center;
     margin-bottom: 8em;
+    padding-top: 4em;
 }
 
 .wkxp-wrapper {
@@ -488,7 +489,7 @@ footer {
 
 #ltlk-frm input {
     background: transparent;
-    padding: 1em 0 0.5em 0;
+    padding: 0.8em 0 0.3em 0;
     color: #fff;
     border: none;
     text-align: center;
@@ -533,7 +534,7 @@ footer {
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
     pointer-events: none;
-    top: 1.6em;
+    top: 1.4em;
     left: 0;
     right: 0;
     bottom: 0;
@@ -570,10 +571,92 @@ input:valid ~ label {
     transition: all 0.225s ease;
 }
 
+
+/* Form Animation */
+#status {
+    width: 100%;
+    display:none;
+}
+
+.spinner {
+    margin: 0px auto;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.spinner > div {
+    background-color: rgb(48, 255, 253);
+    height: 100%;
+    width: 8px;
+    display: inline-block;
+
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+
+    border-radius: 50%;
+
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+    background-color: rgb(48, 255, 253);
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+    background-color: rgb(48, 255, 253);
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+    background-color: rgb(48, 255, 253);
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+    background-color: rgb(48, 255, 253);
+}
+
+@-webkit-keyframes stretchdelay {
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(0.4);
+    }
+    20% {
+        -webkit-transform: scaleY(1);
+    }
+}
+
+@keyframes stretchdelay {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }
+    20% {
+        transform: scaleY(1);
+        -webkit-transform: scaleY(1);
+    }
+}
+
 /* Responsive */
 @media (max-width: 1080px) {
     h1 {
         font-size: 2.1em;
+    }
+
+    .maev-text-change {
+        margin-top: 0.2em;
     }
 
     .abpf-img h4 {
@@ -592,6 +675,14 @@ input:valid ~ label {
 
     .abpf-img {
         flex-direction: column;
+    }
+
+    #about-profile {
+        padding-top: 2em;
+    }
+
+    .abpf-text {
+        margin-top: 1.5em;
     }
 }
 
@@ -625,11 +716,11 @@ input:valid ~ label {
 }
 
 @media (max-width: 480px) {
-
-
     h1 {
-        font-size: 1.7em;
+        font-size: 1.8em;
     }
+
+
 
     .wkxp-wrapper {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -639,8 +730,10 @@ input:valid ~ label {
         margin: 1.5em auto;
         text-align: center;
     }
+}
 
-    .abpf-text {
-        margin-top: 1.5em;
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.59em;
     }
 }

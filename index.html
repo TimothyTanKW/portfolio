@@ -24,7 +24,7 @@
     <header>
         <div></div>
         <div class="header-contact">
-            <h6><a href="">CONTACT</a></h6>
+            <h6><a href="#contact-form">CONTACT</a></h6>
         </div>
     </header>
 
@@ -35,11 +35,11 @@
             <span></span>
         </div>
         <div class="nvct-container">
-            <h6 class="nvct-text"><a href="">MAIN</a></h6>
-            <h6 class="nvct-text"><a href="">ABOUT</a></h6>
-            <h6 class="nvct-text"><a href="">WORK</a></h6>
-            <h6 class="nvct-text"><a href="">CONTACT</a></h6>
-            <h6 class="nvct-text"><a href="">RESUME</a></h6>
+            <h6 class="nvct-text"><a href="#main-achieve">MAIN</a></h6>
+            <h6 class="nvct-text"><a href="#about-profile">ABOUT</a></h6>
+            <h6 class="nvct-text"><a href="#work-exp">WORK</a></h6>
+            <h6 class="nvct-text"><a href="#contact-form">CONTACT</a></h6>
+            <!-- <h6 class="nvct-text"><a href="">RESUME</a></h6> -->
         </div>
     </nav>
 
@@ -52,26 +52,26 @@
         </div>
 
 
-        <article class="article__wrap">
+        <div class="progress-wrap">
 
-            <div class="beacon__wrap">
-                <div class="beacon__inner"></div>
-                <div class="beacon__outer"></div>
+            <div class="prgs-start">
+                <div class="prgs-inner"></div>
+                <div class="prgs-outer"></div>
             </div>
-            <div class="article__p__wrap">
-                <div class="progress__bar_wrapper">
-                    <div class="progress__bar__bg"></div>
-                    <div class="progress__bar">
-                        <div class="progress__gutter">
+            <div class="prgs-area-wrap">
+                <div class="prgs-bar-wrap">
+                    <div class="prgs-bar-bg"></div>
+                    <div class="prgs-bar">
+                        <div class="prgs-gutter">
                         </div>
                     </div>
-                    <div class="progress__bar__arrow"></div>
+                    <div class="prgs-arrow"></div>
                 </div>
-                <p class="article__p">
+                <p class="prgs-end">
 
                 </p>
             </div>
-        </article>
+        </div>
 
         <section id="about-profile">
             <div class="container">
@@ -107,26 +107,26 @@
 
     </section>
 
-    <article class="article__wrap">
+    <div class="progress-wrap">
 
-        <div class="beacon__wrap">
-            <div class="beacon__inner"></div>
-            <div class="beacon__outer"></div>
+        <div class="prgs-start">
+            <div class="prgs-inner"></div>
+            <div class="prgs-outer"></div>
         </div>
-        <div class="article__p__wrap">
-            <div class="progress__bar_wrapper">
-                <div class="progress__bar__bg"></div>
-                <div class="progress__bar">
-                    <div class="progress__gutter">
+        <div class="prgs-area-wrap">
+            <div class="prgs-bar-wrap">
+                <div class="prgs-bar-bg"></div>
+                <div class="prgs-bar">
+                    <div class="prgs-gutter">
                     </div>
                 </div>
-                <div class="progress__bar__arrow"></div>
+                <div class="prgs-arrow"></div>
             </div>
-            <p class="article__p">
+            <p class="prgs-end">
 
             </p>
         </div>
-    </article>
+    </div>
 
 
 
@@ -207,51 +207,66 @@
     <section id="lets-talk">
 
 
-        <article class="article__wrap">
+        <div class="progress-wrap">
 
-            <div class="beacon__wrap">
-                <div class="beacon__inner"></div>
-                <div class="beacon__outer"></div>
+            <div class="prgs-start">
+                <div class="prgs-inner"></div>
+                <div class="prgs-outer"></div>
             </div>
-            <div class="article__p__wrap">
-                <div class="progress__bar_wrapper">
-                    <div class="progress__bar__bg"></div>
-                    <div class="progress__bar">
-                        <div class="progress__gutter">
+            <div class="prgs-area-wrap">
+                <div class="prgs-bar-wrap">
+                    <div class="prgs-bar-bg"></div>
+                    <div class="prgs-bar">
+                        <div class="prgs-gutter">
                         </div>
                     </div>
-                    <div class="progress__bar__arrow"></div>
+                    <div class="prgs-arrow"></div>
                 </div>
-                <p class="article__p">
+                <div class="prgs-end">
 
-                </p>
+                </div>
             </div>
-        </article>
+        </div>
 
-        <div class="container ltlk-content">
+        <div class="container ltlk-content" id="contact-form">
             <h1 class="ltlk-header">LET'S CHAT!</h1>
             <form id="ltlk-frm">
                 <div class="ltlk-input">
-                    <input type="text" name="name" required>
+                    <input id="name" type="text" name="name" required>
                     <label for="name">
                         <h6>NAME</h6>
                     </label>
                 </div>
                 <div class="ltlk-input">
-                    <input type="text" name="email" required>
+                    <input id="email" type="text" name="email" required>
                     <label for="email">
-                        <h6>EMAIL</h6></label>
+                        <h6>EMAIL</h6>
+                    </label>
                 </div>
                 <div class="ltlk-input">
-                    <input type="text" name="message" required>
+                    <input id="message" type="text" name="message" required>
                     <label for="message">
                         <h6>MESSAGE</h6>
                     </label>
                 </div>
 
-                <button class="ltlk-btn" type="submit" value="SUBMIT">
-                    <h6>SUBMIT</h6>
+                <button class="ltlk-btn" type="submit" value="submit" name="submit">
+                    <h6 id="btn-text">SUBMIT</h6>
+                    <div id="status">
+                        <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+
+                        </div>
+
+                    </div>
                 </button>
+                <div class="loading-success">
+
+                </div>
             </form>
         </div>
     </section>
@@ -260,7 +275,8 @@
         <div id="copyright">© Design and Coded by Timothy Tan</div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>

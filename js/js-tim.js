@@ -1,3 +1,37 @@
+// <!-- Ajax submission -->
+$('#ltlk-frm').submit(function (e) {
+	$('#status').show();// <!-- Submit button pending -->
+	$('#btn-text').hide();
+	e.preventDefault();
+	var valid;
+	valid = $("#ltlk-frm").valid();
+	if (valid) {
+	  var name = $("#name").val();  
+	  var email = $("#email").val();
+	  var message = $("#message").val();
+
+  
+	  $.ajax({
+		type: "POST",
+		dataType: "json",
+		url: "ttcontactengine.php",
+		data: "name=" + name + "&email=" + email + "&message=" + message,
+		success: function (response) {
+		  if (response.data == "success") {
+			$("#name").val("");
+			$("#email").val("");
+			$("#message").val("");
+  
+			$('#status').hide();// <!-- Submit button stop pending -->
+  
+		  }
+		},
+		error: function () { }
+	  });
+	}
+  
+  });
+
 // Hamburger
 let menuToggle = document.querySelector(".toggle");
 let menuContent = document.querySelector(".nvct-container");
@@ -62,7 +96,7 @@ setInterval(randomizeText, getAnimationTime());
 var controller = new ScrollMagic.Controller();
 
 //to light up the beacon heading and stop point
-$('.beacon__inner').each(function () {
+$('.prgs-inner').each(function () {
 	var beaconinnerScene = new ScrollMagic.Scene({
 		triggerElement: this,
 		triggerHook: .6
@@ -71,7 +105,7 @@ $('.beacon__inner').each(function () {
 		.addTo(controller);
 });
 
-$('.beacon__outer').each(function () {
+$('.prgs-outer').each(function () {
 	var beaconouterScene = new ScrollMagic.Scene({
 		triggerElement: this,
 		triggerHook: .6
@@ -84,7 +118,7 @@ $('.beacon__outer').each(function () {
 
 
 //For the reading progress
-$('.progress__gutter').each(function () {
+$('.prgs-gutter').each(function () {
 	var readingProgress = new ScrollMagic.Scene({
 		triggerElement: this,
 		triggerHook: .6,
@@ -97,7 +131,7 @@ $('.progress__gutter').each(function () {
 
 
 //For progress arrow
-$('.progress__bar__arrow').each(function () {
+$('.prgs-arrow').each(function () {
 	var progressArrow = new ScrollMagic.Scene({
 		triggerElement: this,
 		triggerHook: .6
@@ -126,5 +160,7 @@ wkxpBtn.onclick = function() {
 	wkxpShow.classList.toggle("wkxp-active");
 	wkxpBtn.classList.add("wkxp-hide");
 }
+
+
 
 
