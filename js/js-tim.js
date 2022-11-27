@@ -1,6 +1,7 @@
 // <!-- Ajax submission -->
 $('#ltlk-frm').submit(function (e) {
 	$('#status').show();// <!-- Submit button pending -->
+
 	$('#btn-text').hide();
 	e.preventDefault();
 	var valid;
@@ -21,9 +22,9 @@ $('#ltlk-frm').submit(function (e) {
 			$("#name").val("");
 			$("#email").val("");
 			$("#message").val("");
-  
+			$('#loading-success').show();
 			$('#status').hide();// <!-- Submit button stop pending -->
-  
+			$('#ltlk-frm').hide();
 		  }
 		},
 		error: function () { }
