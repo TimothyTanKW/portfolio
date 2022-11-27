@@ -155,12 +155,12 @@ $('.ltlk-header').each(function () {
 
 
 // Hidden Cards
-let wkxpBtn = document.querySelector(".wkxp-btn");
-let wkxpShow = document.querySelector(".wkxp-hidden");
-wkxpBtn.onclick = function() {
-	wkxpShow.classList.toggle("wkxp-active");
-	wkxpBtn.classList.add("wkxp-hide");
-}
+// let wkxpBtn = document.querySelector(".wkxp-btn");
+// let wkxpShow = document.querySelector(".wkxp-hidden");
+// wkxpBtn.onclick = function() {
+// 	wkxpShow.classList.toggle("wkxp-active");
+// 	wkxpBtn.classList.add("wkxp-hide");
+// }
 
 
 

@@ -430,7 +430,29 @@ header {
     border-radius: 15px;
     margin-top: 1em;
     overflow: hidden;
+
 }
+
+.work-exp-box img {
+    transition: all 0.4s ease;
+}
+
+.wkxp-container:hover  .work-exp-box img{
+    transform: scale(1.05);
+}
+
+.wkxp-container:hover h4   {
+    display: none;
+}
+
+.wkxp-container h6 {
+    display:none;
+    height: 1.87em;
+}
+
+.wkxp-container:hover h6 {
+    display:block;
+} 
 
 .wkxp-btn {
     padding: 1.3em 2.1em;
@@ -448,9 +470,9 @@ header {
     color: #021036;
 }
 
-.wkxp-hidden {
+/* .wkxp-hidden {
     display: none;
-}
+} */
 
 .wkxp-active {
     display: grid;
@@ -495,6 +517,14 @@ footer {
     border: none;
     text-align: center;
     width: 95%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color:#fff;
 }
 
 .ltlk-btn {
