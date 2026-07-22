@@ -226,7 +226,7 @@ canvas {
 .scroll {
   z-index: -9;
   position: absolute;
-  top:-10vh;
+  top: -10vh;
 }
 
 .menu {
@@ -346,6 +346,7 @@ canvas {
   margin: 0 auto;
   justify-content: flex-start;
   position: relative;
+  z-index: 5;
   flex-direction: column;
   max-width: 1200px;
 }
@@ -433,6 +434,18 @@ canvas {
   position: relative;
 }
 
+.contact::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: #000000;
+  height: 150px;
+  z-index: 1;
+  top: -50px;
+  filter: blur(50px);
+}
+
 .footer {
   position: absolute;
   bottom: 2vh;
@@ -503,7 +516,16 @@ canvas {
 
   .kvText {
     padding-bottom: 0;
+    background-image: url('assets/newhorizon_swissalps_m.webp');
   }
+
+  .kvText2 {
+    background-image: url('assets/letschat_swissvalley_m.webp');
+  }
+
+  /* .about-bg::before {
+    background-image: none;
+  } */
 
   .card {
     min-width: 100%;

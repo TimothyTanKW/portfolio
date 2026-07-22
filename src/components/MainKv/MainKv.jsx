@@ -15,32 +15,30 @@ import html2canvas from "html2canvas";
 
 
 
-const useDomToCanvas = (domEl) => {
+const useDomToCanvas = (domEl, isMobile) => {
   const [texture, setTexture] = useState();
   useEffect(() => {
     if (!domEl) return;
     const convertDomToCanvas = async () => {
       const canvas = await html2canvas(domEl, { backgroundColor: null });
       setTexture(new THREE.CanvasTexture(canvas));
-        hideCloned();
-    };
-
-    const hideCloned = () => {
-      domEl.style.display = 'none';
+      domEl.style.visibility = 'hidden';
     };
 
     convertDomToCanvas();
-  
 
-    const debouncedResize = debounce(() => {
-      domEl.style.display = 'flex';
-      convertDomToCanvas();
-    }, 100);
+    if (!isMobile) {
+      const debouncedResize = debounce(() => {
+        domEl.style.visibility = 'visible';
+        convertDomToCanvas();
+      }, 1000);
 
-    window.addEventListener("resize", debouncedResize);
-    return () => {
-      window.removeEventListener("resize", debouncedResize);
-    };
+      window.addEventListener("resize", debouncedResize);
+      return () => {
+        window.removeEventListener("resize", debouncedResize);
+      };
+    }
+
   }, [domEl]);
 
 
@@ -51,25 +49,26 @@ const useDomToCanvas = (domEl) => {
 function Lights() {
   const pointLightRef = useRef();
 
-  useHelper(pointLightRef, PointLightHelper, 0.7, "cyan");
+  // useHelper(pointLightRef, PointLightHelper, 0.7, "cyan");
 
-  const config = useControls("Lights", {
+  let config = useControls("Lights", {
     color: "#471f1f",
     intensity: { value: 1134, min: 0, max: 5000, step: 0.01 },
     distance: { value: 14.2, min: 0, max: 100, step: 0.1 },
     decay: { value: 1.8, min: 0, max: 5, step: 0.1 },
     position: { value: [1, 4, 6] },
   });
+
   return <pointLight ref={pointLightRef} {...config} />;
 }
 
-function Scene({isMobile}) {
+function Scene({ isMobile, title }) {
   const state = useThree();
   const { width, height } = state.viewport;
   const [domEl, setDomEl] = useState(null);
 
   const materialRef = useRef();
-  const textureDOM = useDomToCanvas(domEl);
+  const textureDOM = useDomToCanvas(domEl, isMobile);
 
   const uniforms = useMemo(
     () => ({
@@ -81,23 +80,34 @@ function Scene({isMobile}) {
 
   const mouseLerped = useRef({ x: 0, y: 0 });
 
+
+
   useFrame((state, delta) => {
-    const mouse = state.mouse;
-    mouseLerped.current.x = THREE.MathUtils.lerp(mouseLerped.current.x, mouse.x, 0.1);
-    mouseLerped.current.y = THREE.MathUtils.lerp(mouseLerped.current.y, mouse.y, 0.1);
-    materialRef.current.uniforms.uMouse.value.x = mouseLerped.current.x;
-    materialRef.current.uniforms.uMouse.value.y = mouseLerped.current.y;
+      const mouse = state.mouse;
+      mouseLerped.current.x = THREE.MathUtils.lerp(mouseLerped.current.x, mouse.x, 0.1);
+      mouseLerped.current.y = THREE.MathUtils.lerp(mouseLerped.current.y, mouse.y, 0.1);
+      materialRef.current.uniforms.uMouse.value.x = mouseLerped.current.x;
+      materialRef.current.uniforms.uMouse.value.y = mouseLerped.current.y;
   });
+
 
   return (
     <>
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
-        <div ref={(el) => setDomEl(el)} className="kvText inner">
-          <div>
+        {!title ?
+          <div ref={(el) => setDomEl(el)} className="kvText inner">
+            <div>
               <h1>TIMOTHY TAN</h1>
               <span className="text-subtitle"><span>FRONT-END</span><span>DEVELOPER</span><span>//</span></span>
+            </div>
           </div>
-        </div>
+          :
+          <div ref={(el) => setDomEl(el)} className="kvText2 inner">
+            <div>
+              <span className="contact-title">{title[2].title}</span>
+            </div>
+          </div>
+        }
       </Html>
       <mesh>
         <planeGeometry args={[width, height, 254, 254]} />
@@ -107,10 +117,11 @@ function Scene({isMobile}) {
           vertexShader={isMobile?vertexShaderMobile:vertexShader}
           fragmentShader={fragmentShader}
           uniforms={uniforms}
-          flatShading
+          // flatShading
           silent
         />
-        <Lights />
+
+        <Lights title={title} />
       </mesh>
     </>
   );

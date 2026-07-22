@@ -1,12 +1,12 @@
-import mhr from "../assets/work_mhr.jpg";
-import mso from "../assets/work_mso.jpg";
+import mhr from "../assets/work_mhr.webp";
+import mso from "../assets/work_mso.webp";
 import nms from "../assets/work_nms.webp";
 import eys from "../assets/work_eys.webp";
-import omdjae from "../assets/work_omdjae.jpg";
-import aams from "../assets/work_aams.jpg";
+import omdjae from "../assets/work_omdjae.webp";
+import aams from "../assets/work_aams.webp";
 import anx from "../assets/work_anx.webp";
 import senna from "../assets/work_senna.webp";
-import roc from "../assets/work_roc.jpg";
+import roc from "../assets/work_roc.webp";
 import eob from "../assets/work_eob.webp";
 
 export const workData = [

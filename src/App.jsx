@@ -15,15 +15,24 @@ import { aboutData } from "./data/aboutData";
 import { titleData } from "./data/titleData";
 
 // Image
-import timProfile from './assets/tim_profile.png';
+import timProfile from './assets/tim_profile.webp';
 
 // Components
 import About from './components/About';
-import Contact from './components/Contact';
 
 
 
 function Title3D({ isMobile, scrollToWork, scrollToAbout, scrollToContact }) {
+
+  const [frameloop, setFrameloop] = useState('always');
+
+  useEffect(() => {
+    const loadTimeout = setTimeout(() => {
+        setFrameloop('demand');
+    }, 1000);
+
+    return () => clearTimeout(loadTimeout);
+  }, []);
 
   const linkEmail = () => {
     window.location.href = 'mailto:timothy.tan.sandbox@gmail.com';
@@ -33,10 +42,12 @@ function Title3D({ isMobile, scrollToWork, scrollToAbout, scrollToContact }) {
     <div className="absolute top-0 left-0 h-screen w-screen" style={{ height: '100vh' }}>
 
       <Canvas
-        dpr={[1, 2]}
+        frameloop={isMobile?frameloop:'always'}
+        dpr={[1, 1.5]}
         gl={{
           antialias: true,
           preserveDrawingBuffer: true,
+          // powerPreference: 'high-performance',
         }}
         camera={{
           fov: 55,
@@ -55,17 +66,19 @@ function Title3D({ isMobile, scrollToWork, scrollToAbout, scrollToContact }) {
       <div className="contact">
         <div ref={scrollToContact}></div>
         <Canvas
-          dpr={[1, 2]}
+           frameloop={isMobile?frameloop:'always'}
+          dpr={[1, 1.5]}
           gl={{
             antialias: true,
             preserveDrawingBuffer: true,
+            // powerPreference: 'high-performance',
           }}
           camera={{
             fov: 55,
             near: 0.1,
             far: 200,
           }}
-        ><Contact title={titleData} isMobile={isMobile} />
+        > <Scene title={titleData} isMobile={isMobile} />
 
         </Canvas>
         <div className="contact-details">
