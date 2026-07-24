@@ -8,7 +8,7 @@
   --color-bg: #000000;
   --translucent: #ffffff6b;
   --translucent-bg: rgba(228, 228, 228, 0.132);
-  --main-title: clamp(200px, 10vh, 210px);
+  --main-title: clamp(180px, 9vh, 190px);
   --main-subtitle: clamp(30px, 1.8vh, 40px);
   --section-title: clamp(80px, 4vh, 90px);
 }
